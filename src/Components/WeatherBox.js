@@ -9,13 +9,11 @@ const WeatherBox = () => {
     setCity(val)
   }
 
-  useEffect(()=>{
+  useEffect((search)=>{
     const fetchApi= async()=>{
       const url=`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ad6c33aee94c0a56b485f448955c43cd`
       const response = await fetch(url);
       const jsonRes= await response.json();
-      // console.log(jsonRes)
-
       setSearch(jsonRes.main);
       console.log(search);
     }
