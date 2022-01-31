@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 
 const WeatherBox = () => {
-
-  const [city,setCity]=useState('Noida');
-  const [search,setSearch]=useState('Noida');
-
+  const[city,setCity]=useState('Noida');
+  const[search,setSearch]=useState('Noida');
   const onChange=(val)=>{
     setCity(val)
   }
-  console.log()
 
   useEffect(()=>{
     const fetchApi= async()=>{
-      const url=`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_ID}`
+      const url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_ID}`
       const response = await fetch(url);
       const jsonRes= await response.json();
       setSearch(jsonRes.main);
